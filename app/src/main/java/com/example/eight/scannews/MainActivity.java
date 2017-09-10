@@ -3,6 +3,7 @@ package com.example.eight.scannews;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -10,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.eight.scannews.utils.Channels;
 import com.example.eight.scannews.utils.ChannelsUtils;
@@ -19,6 +21,8 @@ import org.litepal.crud.DataSupport;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +37,7 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         // 获取 tab 名称
@@ -72,6 +76,7 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         switch (id) {
             case R.id.action_settings:
+                Snackbar.make(navigationView,"敬请期待",Snackbar.LENGTH_SHORT).show();
                 return true;
 
         }
@@ -96,10 +101,10 @@ public class MainActivity extends AppCompatActivity
                         new AboutFragment()).commit();
                 break;
             case R.id.nav_share:
-
+                Snackbar.make(navigationView,"敬请期待",Snackbar.LENGTH_SHORT).show();
                 break;
             case R.id.nav_send:
-
+                Snackbar.make(navigationView,"敬请期待",Snackbar.LENGTH_SHORT).show();
                 break;
             default:
                 break;
