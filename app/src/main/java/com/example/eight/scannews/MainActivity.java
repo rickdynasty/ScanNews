@@ -11,10 +11,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.example.eight.scannews.utils.Channels;
 import com.example.eight.scannews.utils.ChannelsUtils;
+import com.example.eight.scannews.view.AboutFragment;
 import com.example.eight.scannews.view.NewsTabPageFragment;
 
 import org.litepal.crud.DataSupport;
