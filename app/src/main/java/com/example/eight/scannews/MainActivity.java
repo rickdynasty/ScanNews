@@ -107,9 +107,12 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_share:
                 Snackbar.make(navigationView,"敬请期待",Snackbar.LENGTH_SHORT).show();
                 break;
-            case R.id.nav_send:
-                Snackbar.make(navigationView,"敬请期待",Snackbar.LENGTH_SHORT).show();
+            case R.id.nav_setting:
+                //Snackbar.make(navigationView,"敬请期待",Snackbar.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
                 break;
+
             default:
                 break;
         }

@@ -25,7 +25,7 @@
         android:id="@+id/news_public_icon"
         android:layout_width="12dp"
         android:layout_height="12dp"
-        android:src="@drawable/ic_public"
+        app:srcCompat="@drawable/ic_public"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="parent"
         android:contentDescription="News Public" />
