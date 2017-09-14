@@ -1,5 +1,6 @@
 package com.example.eight.scannews;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -16,6 +17,7 @@ import com.example.eight.scannews.utils.Channels;
 import com.example.eight.scannews.utils.ChannelsUtils;
 import com.example.eight.scannews.view.AboutFragment;
 import com.example.eight.scannews.view.NewsTabPageFragment;
+import com.example.eight.scannews.view.SettingsActivity;
 
 import org.litepal.crud.DataSupport;
 
@@ -76,7 +78,9 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         switch (id) {
             case R.id.action_settings:
-                Snackbar.make(navigationView,"敬请期待",Snackbar.LENGTH_SHORT).show();
+                //Snackbar.make(navigationView,"敬请期待",Snackbar.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
                 return true;
 
         }
