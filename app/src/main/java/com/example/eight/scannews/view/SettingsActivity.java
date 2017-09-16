@@ -15,7 +15,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         //implements NavigationView.OnNavigationItemSelectedListener
 {
     ActionBar actionBar;
-    NavigationView navigationView;
+    // NavigationView navigationView;
     private LinearLayout cleanCache;
     private LinearLayout about;
     private LinearLayout feedback;
