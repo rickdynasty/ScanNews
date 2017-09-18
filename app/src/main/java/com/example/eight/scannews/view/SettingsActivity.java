@@ -4,21 +4,28 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 
 import com.example.eight.scannews.R;
 
-public class SettingsActivity extends AppCompatActivity implements View.OnClickListener
+public class SettingsActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener
         //implements NavigationView.OnNavigationItemSelectedListener
 {
-    ActionBar actionBar;
+    public static boolean isSwitchEnable;
+
+    private ActionBar actionBar;
     // NavigationView navigationView;
     private LinearLayout cleanCache;
     private LinearLayout about;
     private LinearLayout feedback;
     private LinearLayout wifiSetting;
+    private Switch wifiSwitch;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +35,8 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
+        isSwitchEnable = wifiSwitch.isEnabled();
+        Log.e("---------->", "onCreate: " + isSwitchEnable);
 
 /*
         navigationView = (NavigationView) findViewById(R.id.nav_setting);
@@ -57,13 +66,15 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         feedback.setOnClickListener(this);
         wifiSetting = (LinearLayout) findViewById(R.id.wifi_setting);
         wifiSetting.setOnClickListener(this);
+        wifiSwitch = (Switch) findViewById(R.id.wifi_switch);
+        wifiSwitch.setOnCheckedChangeListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.wifi_setting:
-
+                wifiSwitch.setChecked(!isSwitchEnable);
                 break;
             case R.id.clean_cache:
                 Snackbar.make(cleanCache, "已清除缓存", Snackbar.LENGTH_SHORT).show();
@@ -76,6 +87,13 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                 break;
             default:
                 break;
+        }
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if (isChecked) {
+            
         }
     }
 
