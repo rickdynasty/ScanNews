@@ -1,5 +1,9 @@
 package com.example.eight.scannews.view;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +12,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.NotificationCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,6 +22,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.eight.scannews.utils.BootReceiver;
 import com.example.eight.scannews.utils.NewsAdapter;
 import com.example.eight.scannews.R;
 import com.example.eight.scannews.beans.NewsBean;
@@ -27,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.content.ContentValues.TAG;
+import static android.content.Context.NOTIFICATION_SERVICE;
 
 /**
  * Created by eight on 2017/6/9.
@@ -40,6 +47,7 @@ public class NewsListFragment extends Fragment
     private LinearLayoutManager layoutManager;
     private Contract.NewsPresenter newsPresenter;
     private NewsAdapter newsAdapter;
+
 
     private List<NewsBean.NewslistBean> data;
     private int type = 0;
@@ -92,6 +100,8 @@ public class NewsListFragment extends Fragment
         return view;
     }
 
+
+
     private NewsAdapter.OnItemClickListener onItemClickListener = new NewsAdapter.OnItemClickListener() {
         @Override
         public void onItemClick(View view, int position) {
@@ -115,6 +125,8 @@ public class NewsListFragment extends Fragment
             ActivityCompat.startActivity(getActivity(), intent, optionsCompat.toBundle());
         }
     };
+
+
     private RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener() {
         private int lastVisibleItem;
 
@@ -147,6 +159,7 @@ public class NewsListFragment extends Fragment
             data = new ArrayList<>();
         }
         data.addAll(newsBeanList);
+
         if (pageIndex == 0) {
             newsAdapter.setData(data);
         } else {
@@ -182,4 +195,5 @@ public class NewsListFragment extends Fragment
         }
         newsPresenter.loadNews(type, key, pageSize, pageIndex);
     }
+
 }

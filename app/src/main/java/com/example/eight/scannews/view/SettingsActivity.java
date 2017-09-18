@@ -1,7 +1,6 @@
 package com.example.eight.scannews.view;
 
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +18,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     private LinearLayout cleanCache;
     private LinearLayout about;
     private LinearLayout feedback;
+    private LinearLayout wifiSetting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +55,16 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         about.setOnClickListener(this);
         feedback = (LinearLayout) findViewById(R.id.feedback);
         feedback.setOnClickListener(this);
+        wifiSetting = (LinearLayout) findViewById(R.id.wifi_setting);
+        wifiSetting.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.wifi_setting:
+
+                break;
             case R.id.clean_cache:
                 Snackbar.make(cleanCache, "已清除缓存", Snackbar.LENGTH_SHORT).show();
                 break;
