@@ -1,6 +1,8 @@
 package com.example.eight.scannews.utils;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -20,7 +22,11 @@ import java.util.List;
  */
 
 public class ChannelsUtils {
+    private static Context context;
 
+    public ChannelsUtils(Context context) {
+        ChannelsUtils.context = context;
+    }
 
     /**
      * en : social
@@ -88,15 +94,40 @@ public class ChannelsUtils {
 
     public static List<String> setupTab(String nameType) {
         List<Channels> channelsList = DataSupport.findAll(Channels.class);
+        List<Channels> channels = new ArrayList<>();
+        SharedPreferences sp = context.getSharedPreferences("channels", Context.MODE_PRIVATE);
+        if (!sp.contains("selectedList")){
+            channels = channelsList;
+        } else {
+            int size = sp.getInt("selectedList", 0);
+            if (size == 0) {
+                for (int i = 1; i < channelsList.size(); i++) {
+                    channelsList.remove(i);
+                }
+                channels = channelsList;
+            } else {
+                String c;
+                for (int i = 0; i < size; i++) {
+                    c = sp.getString("selectedList" + i, null);
+                    Log.e("-------->", "setupTab: " + c);
+                    Log.e("-------->", "setupTab: " + DataSupport.where("cn = ?", c).find(Channels.class).get(0).getEn());
+                    for (Channels cs : DataSupport.where("cn = ?", c).find(Channels.class)) {
+                        channels.add(cs);
+                    }
+                }
+            }
+
+        }
+
         List<String> newsTab = new ArrayList<>();
         switch (nameType) {
             case "en":
-                for (Channels c : channelsList) {
+                for (Channels c : channels) {
                     newsTab.add(c.getEn());
                 }
                 return newsTab;
             case "cn":
-                for (Channels c : channelsList) {
+                for (Channels c : channels) {
                     newsTab.add(c.getCn());
                 }
                 return newsTab;

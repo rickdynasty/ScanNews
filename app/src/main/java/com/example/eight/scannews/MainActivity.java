@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity
             DataSupport.deleteAll(Channels.class);
             ChannelsUtils.handleChannels(getApplicationContext());
         }
+        ChannelsUtils channelsUtils = new ChannelsUtils(getApplicationContext());
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_content,
                 new NewsTabPageFragment()).commit();
     }
