@@ -114,7 +114,11 @@ public class NewsListFragment extends Fragment
             ArrayList<String> news = new ArrayList<>();
             news.add(newslistBean.getTitle());
             news.add(newslistBean.getUrl());
-            news.add(newslistBean.getPicUrl());
+            if (SettingsActivity.isSwitchEnable) {
+                news.add(newslistBean.getPicUrl());
+            } else {
+                news.add("");
+            }
             Log.e(TAG, "onItemClick: ---> " + news.toString());
             Bundle bundle = new Bundle();
             bundle.putStringArrayList("news", news);

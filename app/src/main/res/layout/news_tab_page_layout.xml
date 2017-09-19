@@ -9,8 +9,8 @@
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        app:tabBackground="@color/colorPrimaryDark"
-        app:tabTextColor="@color/white"
+        app:tabBackground="@color/white"
+        app:tabTextColor="@color/colorPrimaryDark"
         app:tabSelectedTextColor="@color/colorAccent"
         app:tabMode="scrollable"/>
 

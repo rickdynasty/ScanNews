@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.eight.scannews.R;
 import com.example.eight.scannews.beans.NewsBean;
+import com.example.eight.scannews.view.SettingsActivity;
 
 import java.util.List;
 
@@ -86,7 +87,11 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             ((ItemViewHolder) holder).newsContent.setText(newslistBean.getTitle());
             ((ItemViewHolder) holder).newsPublic.setText(newslistBean.getDescription());
             ((ItemViewHolder) holder).newsTime.setText(newslistBean.getCtime());
-            HttpUtils.showPicture(context, ((ItemViewHolder) holder).newsPicture, newslistBean.getPicUrl());
+            if (SettingsActivity.isSwitchEnable) {
+                HttpUtils.showPicture(context, ((ItemViewHolder) holder).newsPicture, newslistBean.getPicUrl());
+            } else {
+                HttpUtils.showPicture(context, ((ItemViewHolder) holder).newsPicture, "http");
+            }
 
         }
     }

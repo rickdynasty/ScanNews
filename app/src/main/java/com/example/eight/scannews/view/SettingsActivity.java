@@ -75,6 +75,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         switch (v.getId()) {
             case R.id.wifi_setting:
                 wifiSwitch.setChecked(!isSwitchEnable);
+                //Log.e("---------->", String.valueOf(isSwitchEnable));
                 break;
             case R.id.clean_cache:
                 Snackbar.make(cleanCache, "已清除缓存", Snackbar.LENGTH_SHORT).show();
@@ -93,8 +94,11 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
-            
+            isSwitchEnable = true;
+        } else {
+            isSwitchEnable = false;
         }
+        //Log.e("------>---->", String.valueOf(isSwitchEnable));
     }
 
 

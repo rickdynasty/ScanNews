@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import com.example.eight.scannews.utils.Channels;
 import com.example.eight.scannews.utils.ChannelsUtils;
 import com.example.eight.scannews.view.AboutFragment;
+import com.example.eight.scannews.view.ChannelManageActivity;
 import com.example.eight.scannews.view.NewsTabPageFragment;
 import com.example.eight.scannews.view.SettingsActivity;
 
@@ -81,6 +82,10 @@ public class MainActivity extends AppCompatActivity
                 //Snackbar.make(navigationView,"敬请期待",Snackbar.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(intent);
+                return true;
+            case R.id.channels_manager:
+                Intent managerIntent = new Intent(MainActivity.this, ChannelManageActivity.class);
+                startActivity(managerIntent);
                 return true;
 
         }
