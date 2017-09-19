@@ -53,25 +53,17 @@ public class NewsTabPageFragment extends Fragment {
         ViewPager viewPager = (ViewPager) view.findViewById(R.id.view_pager);
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tab_layout);
 
-/*
-        List<Channels> channelsList = DataSupport.findAll(Channels.class);
-        // 设置 tab
-        for (Channels c : channelsList) {
-            newsTab.add(c.getCn());
-        }
-*/
-
         newsTab =  ChannelsUtils.setupTab("cn");
         viewPager.setOffscreenPageLimit(1);
         initViewPager(viewPager);
         for (String aNewsTab : newsTab) {
             tabLayout.addTab(tabLayout.newTab().setText(aNewsTab));
         }
-        if (newsTab.size() < 5) {
+        /*if (newsTab.size() < 5) {
             tabLayout.setTabMode(TabLayout.MODE_FIXED);
         } else {
             tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-        }
+        }*/
         tabLayout.setupWithViewPager(viewPager);
         return view;
     }

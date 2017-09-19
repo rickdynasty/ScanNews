@@ -1,5 +1,6 @@
 package com.example.eight.scannews.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
@@ -11,6 +12,7 @@ import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 
+import com.example.eight.scannews.MainActivity;
 import com.example.eight.scannews.R;
 
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener
@@ -19,7 +21,6 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     public static boolean isSwitchEnable;
 
     private ActionBar actionBar;
-    // NavigationView navigationView;
     private LinearLayout cleanCache;
     private LinearLayout about;
     private LinearLayout feedback;
@@ -38,10 +39,6 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         isSwitchEnable = wifiSwitch.isEnabled();
         Log.e("---------->", "onCreate: " + isSwitchEnable);
 
-/*
-        navigationView = (NavigationView) findViewById(R.id.nav_setting);
-        navigationView.setNavigationItemSelectedListener(this);
-*/
     }
 
     @Override
@@ -81,7 +78,10 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                 Snackbar.make(cleanCache, "已清除缓存", Snackbar.LENGTH_SHORT).show();
                 break;
             case R.id.about:
-                Snackbar.make(about, "敬请期待", Snackbar.LENGTH_SHORT).show();
+                //Snackbar.make(about, "敬请期待", Snackbar.LENGTH_SHORT).show();
+                Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
+                intent.putExtra("id", 1);
+                startActivity(intent);
                 break;
             case R.id.feedback:
                 Snackbar.make(feedback, "敬请期待", Snackbar.LENGTH_SHORT).show();
@@ -100,30 +100,6 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         }
         //Log.e("------>---->", String.valueOf(isSwitchEnable));
     }
-
-
-
-
-/*
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.clean_cache:
-                Snackbar.make(navigationView, "已清除缓存", Snackbar.LENGTH_SHORT).show();
-                break;
-            case R.id.about:
-                Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
-                startActivity(intent);
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame_content,
-                        new AboutFragment()).commit();
-                break;
-            case R.id.feedback:
-                Snackbar.make(navigationView, "敬请期待", Snackbar.LENGTH_SHORT).show();
-                break;
-            default:
-                break;
-        }
-        return true;
-    }
-*/
 }
+
+

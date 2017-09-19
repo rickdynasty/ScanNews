@@ -101,10 +101,7 @@ public class ChannelsUtils {
         } else {
             int size = sp.getInt("selectedList", 0);
             if (size == 0) {
-                for (int i = 1; i < channelsList.size(); i++) {
-                    channelsList.remove(i);
-                }
-                channels = channelsList;
+                channels.add(channelsList.get(0));
             } else {
                 String c;
                 for (int i = 0; i < size; i++) {

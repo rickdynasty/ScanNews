@@ -51,6 +51,11 @@ public class MainActivity extends AppCompatActivity
         ChannelsUtils channelsUtils = new ChannelsUtils(getApplicationContext());
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_content,
                 new NewsTabPageFragment()).commit();
+
+        if (getIntent().getIntExtra("id", 0) == 1) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame_content,
+                    new AboutFragment()).commitAllowingStateLoss();
+        }
     }
 
     @Override
@@ -86,12 +91,23 @@ public class MainActivity extends AppCompatActivity
                 return true;
             case R.id.channels_manager:
                 Intent managerIntent = new Intent(MainActivity.this, ChannelManageActivity.class);
-                startActivity(managerIntent);
+                startActivityForResult(managerIntent, 0);
                 return true;
 
         }
-
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (resultCode) {
+            case RESULT_OK:
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_content,
+                        new NewsTabPageFragment()).commitAllowingStateLoss();
+                break;
+            default:
+                break;
+        }
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
