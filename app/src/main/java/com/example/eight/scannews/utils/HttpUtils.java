@@ -90,6 +90,7 @@ public class HttpUtils {
         if (imageView == null) {
             throw new IllegalArgumentException("argument error");
         }
+
         Glide.with(context)
                 .load(url)
                 .placeholder(R.drawable.ic_block)

@@ -1,6 +1,7 @@
 package com.example.eight.scannews.view;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
@@ -18,7 +19,9 @@ import com.example.eight.scannews.R;
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener
         //implements NavigationView.OnNavigationItemSelectedListener
 {
-    public static boolean isSwitchEnable;
+    public boolean isSwitchEnable;
+    private SharedPreferences sp;
+    private SharedPreferences.Editor editor;
 
     private ActionBar actionBar;
     private LinearLayout cleanCache;
@@ -37,6 +40,8 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
         isSwitchEnable = wifiSwitch.isEnabled();
+        sp = getSharedPreferences("setting", MODE_PRIVATE);
+
         Log.e("---------->", "onCreate: " + isSwitchEnable);
 
     }
