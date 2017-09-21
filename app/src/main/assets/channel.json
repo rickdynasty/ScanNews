@@ -4,24 +4,16 @@
     "cn":"科技"
   },
   {
-    "en":"guonei",
-    "cn":"国内"
-  },
-  {
-    "en":"world",
-    "cn":"国际"
-  },
-  {
-    "en":"social",
-    "cn":"社会"
-  },
-  {
-    "en":"huabian",
-    "cn":"娱乐"
+    "en":"health",
+    "cn":"健康"
   },
   {
     "en":"tiyu",
     "cn":"体育"
+  },
+  {
+    "en":"huabian",
+    "cn":"娱乐"
   },
   {
     "en":"nba",
@@ -44,16 +36,24 @@
     "cn":"军事"
   },
   {
+    "en":"guonei",
+    "cn":"国内"
+  },
+  {
+    "en":"world",
+    "cn":"国际"
+  },
+  {
+    "en":"social",
+    "cn":"社会"
+  },
+  {
     "en":"mobile",
     "cn":"移动"
   },
   {
     "en":"travel",
     "cn":"旅游"
-  },
-  {
-    "en":"health",
-    "cn":"健康"
   },
   {
     "en":"qiwen",

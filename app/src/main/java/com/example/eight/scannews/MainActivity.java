@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 
 import com.example.eight.scannews.utils.Channels;
 import com.example.eight.scannews.utils.ChannelsUtils;
@@ -21,6 +22,8 @@ import com.example.eight.scannews.view.NewsTabPageFragment;
 import com.example.eight.scannews.view.SettingsActivity;
 
 import org.litepal.crud.DataSupport;
+
+import java.lang.reflect.Method;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -71,8 +74,39 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.popmenu, menu);
         return true;
+    }
+
+    // 溢出菜单显示icon
+    @Override
+    public boolean onMenuOpened(int featureId, Menu menu) {
+        if (featureId == Window.FEATURE_ACTION_BAR && menu != null) {
+            if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
+                try {
+                    Method m = menu.getClass().getDeclaredMethod("setOptionalIconsVisible", Boolean.TYPE);
+                    m.setAccessible(true);
+                    m.invoke(menu, true);
+                } catch (Exception ignored) {
+                }
+            }
+        }
+        return super.onMenuOpened(featureId, menu);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        if (menu != null) {
+            if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
+                try{
+                    Method m = menu.getClass().getDeclaredMethod("setOptionalIconsVisible", Boolean.TYPE);
+                    m.setAccessible(true);
+                    m.invoke(menu, true);
+                } catch (Exception ignored) {
+                }
+            }
+        }
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override

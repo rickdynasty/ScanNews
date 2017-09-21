@@ -31,6 +31,16 @@ public class HttpUtils {
     private Retrofit retrofit;
     private ApiService apiService;
 
+    private static boolean isWifiConnected;
+
+    public static boolean isWifiConnected() {
+        return isWifiConnected;
+    }
+
+    public static void setIsWifiConnected(boolean isWifiConnected) {
+        HttpUtils.isWifiConnected = isWifiConnected;
+    }
+
     /**
      * 私有化构造函数
      */
@@ -94,10 +104,9 @@ public class HttpUtils {
 
         SharedPreferences sp = context.getSharedPreferences("SETTING", Context.MODE_PRIVATE);
         boolean isWifiLoading =  sp.getBoolean("WIFI_LOADING", false);
-        if (isWifiLoading) {
+        if (isWifiLoading && !isWifiConnected()) {
             url = "";
         }
-
         Glide.with(context)
                 .load(url)
                 .placeholder(R.drawable.ic_block)

@@ -12,6 +12,6 @@
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
-        android:icon="@drawable/ic_settings"
-        app:showAsAction="ifRoom" />
+        android:icon="@drawable/ic_settings_black"
+        app:showAsAction="never" />
 </menu>
