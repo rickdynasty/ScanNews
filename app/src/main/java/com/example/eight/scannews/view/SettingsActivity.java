@@ -19,9 +19,8 @@ import com.example.eight.scannews.R;
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener
         //implements NavigationView.OnNavigationItemSelectedListener
 {
-    public boolean isSwitchEnable;
+    private boolean isSwitchEnable;
     private SharedPreferences sp;
-    private SharedPreferences.Editor editor;
 
     private ActionBar actionBar;
     private LinearLayout cleanCache;
@@ -39,12 +38,25 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
-        isSwitchEnable = wifiSwitch.isEnabled();
-        sp = getSharedPreferences("setting", MODE_PRIVATE);
+        sp = getSharedPreferences("SETTING", MODE_PRIVATE);
+        isSwitchEnable = sp.getBoolean("WIFI_LOADING", false);
+        wifiSwitch.setChecked(isSwitchEnable);
 
         Log.e("---------->", "onCreate: " + isSwitchEnable);
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        wifiSwitch.setChecked(isSwitchEnable);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -77,9 +89,14 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         switch (v.getId()) {
             case R.id.wifi_setting:
                 wifiSwitch.setChecked(!isSwitchEnable);
-                //Log.e("---------->", String.valueOf(isSwitchEnable));
+                // Log.e("---------->", String.valueOf(isSwitchEnable));
                 break;
             case R.id.clean_cache:
+                SharedPreferences.Editor editor;
+                sp = getSharedPreferences("SETTING", MODE_PRIVATE);
+                editor = sp.edit();
+                editor.clear();
+                editor.apply();
                 Snackbar.make(cleanCache, "已清除缓存", Snackbar.LENGTH_SHORT).show();
                 break;
             case R.id.about:
@@ -98,12 +115,11 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if (isChecked) {
-            isSwitchEnable = true;
-        } else {
-            isSwitchEnable = false;
-        }
-        //Log.e("------>---->", String.valueOf(isSwitchEnable));
+        isSwitchEnable = isChecked;
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putBoolean("WIFI_LOADING", isSwitchEnable);
+        Log.e("------>---->", isChecked + " " + isSwitchEnable);
+        editor.apply();
     }
 }
 

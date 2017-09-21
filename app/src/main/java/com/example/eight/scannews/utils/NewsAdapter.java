@@ -87,12 +87,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             ((ItemViewHolder) holder).newsContent.setText(newslistBean.getTitle());
             ((ItemViewHolder) holder).newsPublic.setText(newslistBean.getDescription());
             ((ItemViewHolder) holder).newsTime.setText(newslistBean.getCtime());
-            if (SettingsActivity.isSwitchEnable) {
-                HttpUtils.showPicture(context, ((ItemViewHolder) holder).newsPicture, newslistBean.getPicUrl());
-            } else {
-                HttpUtils.showPicture(context, ((ItemViewHolder) holder).newsPicture, "http");
-            }
-
+            HttpUtils.showPicture(context, ((ItemViewHolder) holder).newsPicture, newslistBean.getPicUrl());
         }
     }
 

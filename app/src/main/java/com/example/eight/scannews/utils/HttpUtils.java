@@ -1,6 +1,7 @@
 package com.example.eight.scannews.utils;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.ImageView;
 
@@ -91,6 +92,12 @@ public class HttpUtils {
             throw new IllegalArgumentException("argument error");
         }
 
+        SharedPreferences sp = context.getSharedPreferences("SETTING", Context.MODE_PRIVATE);
+        boolean isWifiLoading =  sp.getBoolean("WIFI_LOADING", false);
+        if (isWifiLoading) {
+            url = "";
+        }
+
         Glide.with(context)
                 .load(url)
                 .placeholder(R.drawable.ic_block)
@@ -98,4 +105,5 @@ public class HttpUtils {
                 .crossFade()
                 .into(imageView);
     }
+
 }

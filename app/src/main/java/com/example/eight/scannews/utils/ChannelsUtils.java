@@ -95,7 +95,7 @@ public class ChannelsUtils {
     public static List<String> setupTab(String nameType) {
         List<Channels> channelsList = DataSupport.findAll(Channels.class);
         List<Channels> channels = new ArrayList<>();
-        SharedPreferences sp = context.getSharedPreferences("channels", Context.MODE_PRIVATE);
+        SharedPreferences sp = context.getSharedPreferences("SETTING", Context.MODE_PRIVATE);
         if (!sp.contains("selectedList")){
             channels = channelsList;
         } else {

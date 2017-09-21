@@ -1,14 +1,11 @@
 package com.example.eight.scannews.model;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.example.eight.scannews.utils.HttpUtils;
 import com.example.eight.scannews.beans.NewsBean;
 import com.example.eight.scannews.contract.Contract;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import java.util.List;
 
