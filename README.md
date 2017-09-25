@@ -8,6 +8,8 @@
 
  
 
+
+
 App 截图：
 
 ![](./Screenshot/p1.png)
@@ -55,7 +57,7 @@ Presenter层是连接（或适配）View和Model的桥梁。
 2. View 与 Model 不发生联系，都通过 Presenter 传递。
 3. View 非常薄，不部署任何业务逻辑，称为"被动视图"（PassiveView），即没有任何主动性，而 Presenter非常厚，所有逻辑都部署在那里。
 
- 
+
 
 架构基础代码：
 
