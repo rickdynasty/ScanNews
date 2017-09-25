@@ -25,5 +25,4 @@ public class WifiStatusReceiver extends BroadcastReceiver {
             }
         }
     }
-
 }

@@ -86,7 +86,6 @@ public class ChannelManageActivity extends AppCompatActivity {
         selectedList = new ArrayList<>();
         unselectedList = new ArrayList<>();
 
-        //selectedList = NewsTabPageFragment.getNewsTab();
         SharedPreferences sp = getApplicationContext().getSharedPreferences("SETTING", MODE_PRIVATE);
         if (sp.getInt("selectedList", 0) == 0) {
             selectedList = NewsTabPageFragment.getNewsTab();
@@ -115,7 +114,6 @@ public class ChannelManageActivity extends AppCompatActivity {
 
     private void initSelectedChannels() {
         GridLayoutManager manager = new GridLayoutManager(selectedChannels.getContext(), 3);
-
         selectedChannels.setLayoutManager(manager);
 
         selectedAdapter = new ChannelsAdapter(ChannelManageActivity.this);
