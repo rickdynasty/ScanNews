@@ -173,7 +173,7 @@ public class HttpUtils {
 
 
 
-图片加载控制 采用OkHttp 框架
+图片加载控制 采用Glide 框架
 
  ```java
 	/**
