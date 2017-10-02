@@ -6,15 +6,15 @@
 
 **App下载地址： [https://github.com/bazhancong/ScanNews/releases](https://github.com/bazhancong/ScanNews/releases)**
 
- 
+**或者： https://pan.baidu.com/s/1hr3EFw4**
 
 
 
 App 截图：
 
-![](./Screenshot/p1.png)
+![](https://raw.githubusercontent.com/bazhancong/ScanNews/master/Screenshot/p1.png)
 
-![](./Screenshot/p2.png)![](./Screenshot/p3.png)![](./Screenshot/p4.png)![](./Screenshot/p5.png)![](./Screenshot/p6.png)![](./Screenshot/p7.png)
+![](https://raw.githubusercontent.com/bazhancong/ScanNews/master/Screenshot/p2.png)![](https://raw.githubusercontent.com/bazhancong/ScanNews/master/Screenshot/p3.png)![](https://raw.githubusercontent.com/bazhancong/ScanNews/master/Screenshot/p4.png)![](https://raw.githubusercontent.com/bazhancong/ScanNews/master/Screenshot/p5.png)![](https://raw.githubusercontent.com/bazhancong/ScanNews/master/Screenshot/p6.png)![](https://raw.githubusercontent.com/bazhancong/ScanNews/master/Screenshot/p7.png)
 
 
 
@@ -41,7 +41,7 @@ MVP架构，即MVP代表Model，View和Presenter。示意图如下：
 
  
 
-![](./Screenshot/mvp.png)
+![](https://raw.githubusercontent.com/bazhancong/ScanNews/master/Screenshot/mvp.png)
 
 ​							图  MVP架构示意图
 
