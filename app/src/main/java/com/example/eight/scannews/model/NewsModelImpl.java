@@ -3,9 +3,9 @@ package com.example.eight.scannews.model;
 import android.content.Context;
 import android.util.Log;
 
-import com.example.eight.scannews.utils.HttpUtils;
 import com.example.eight.scannews.beans.NewsBean;
 import com.example.eight.scannews.contract.Contract;
+import com.example.eight.scannews.utils.HttpUtils;
 
 import java.util.List;
 
@@ -25,6 +25,7 @@ public class NewsModelImpl implements Contract.NewsModel {
     }
 
     private static final String BASE_URL = "https://api.tianapi.com/";
+
     @Override
     public void loadNews(String channel, String key, int num, int page,
                          final Contract.OnLoadNewsListListener listener) {
@@ -38,7 +39,10 @@ public class NewsModelImpl implements Contract.NewsModel {
                     @Override
                     public void onNext(@NonNull NewsBean newsBean) {
                         List<NewsBean.NewslistBean> newslistBeanList = newsBean.getNewslist();
-                        Log.e("--------->", "onNext: " + newslistBeanList.size());
+                        if (null != newslistBeanList) {
+                        } else {
+                            Log.e("--------->", "onNext: null");
+                        }
                         listener.onSuccess(newslistBeanList);
                     }
 

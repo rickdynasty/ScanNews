@@ -1,9 +1,5 @@
 package com.example.eight.scannews.view;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,7 +8,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.NotificationCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,18 +17,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.eight.scannews.utils.BootReceiver;
-import com.example.eight.scannews.utils.NewsAdapter;
 import com.example.eight.scannews.R;
 import com.example.eight.scannews.beans.NewsBean;
 import com.example.eight.scannews.contract.Contract;
 import com.example.eight.scannews.presenter.NewsPresenterImpl;
+import com.example.eight.scannews.utils.NewsAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static android.content.ContentValues.TAG;
-import static android.content.Context.NOTIFICATION_SERVICE;
 
 /**
  * Created by eight on 2017/6/9.
@@ -53,7 +46,7 @@ public class NewsListFragment extends Fragment
     private int type = 0;
     private int pageIndex = 0;
     private final int pageSize = 10;
-    private final String key = "27fe422dbc0fafc86d0be396ea5761e0";
+    private final String key = "cc4364bc3e22fe9bfaf83e0ca2398f4f";
 
     public static NewsListFragment newInstance(int type) {
         Bundle bundle = new Bundle();
@@ -99,7 +92,6 @@ public class NewsListFragment extends Fragment
         onRefresh();
         return view;
     }
-
 
 
     private NewsAdapter.OnItemClickListener onItemClickListener = new NewsAdapter.OnItemClickListener() {
@@ -158,17 +150,20 @@ public class NewsListFragment extends Fragment
         if (data == null) {
             data = new ArrayList<>();
         }
-        data.addAll(newsBeanList);
+
+        if (null != newsBeanList) {
+            data.addAll(newsBeanList);
+        }
 
         if (pageIndex == 0) {
             newsAdapter.setData(data);
         } else {
-            if (newsBeanList.size() == 0) {
+            if (null != newsBeanList && newsBeanList.size() == 0) {
                 newsAdapter.setShowFooter(false);
             }
             newsAdapter.notifyDataSetChanged();
         }
-        pageIndex ++;
+        pageIndex++;
     }
 
     @Override

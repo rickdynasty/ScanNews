@@ -2,7 +2,6 @@ package com.example.eight.scannews.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -60,8 +59,7 @@ public class ChannelsUtils {
     public static boolean handleChannels(Context context) {
         InputStreamReader inputStreamReader = null;
         try {
-            inputStreamReader = new InputStreamReader(context.getAssets()
-                    .open("channel.json"));
+            inputStreamReader = new InputStreamReader(context.getAssets().open("channel.json"));
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             String line;
             StringBuilder stringBuffer = new StringBuilder();
@@ -72,7 +70,8 @@ public class ChannelsUtils {
             inputStreamReader.close();
             Gson gson = new Gson();
             List<ChannelBean> channelsList = gson.fromJson(stringBuffer.toString(),
-                    new TypeToken<List<ChannelBean>>(){}.getType());
+                    new TypeToken<List<ChannelBean>>() {
+                    }.getType());
             //ChannelBean channelBean = gson.fromJson(stringBuffer.toString(),
             //        ChannelBean.class);
             int i = 0;
@@ -96,7 +95,7 @@ public class ChannelsUtils {
         List<Channels> channelsList = DataSupport.findAll(Channels.class);
         List<Channels> channels = new ArrayList<>();
         SharedPreferences sp = context.getSharedPreferences("SETTING", Context.MODE_PRIVATE);
-        if (!sp.contains("selectedList")){
+        if (!sp.contains("selectedList")) {
             channels = channelsList;
         } else {
             int size = sp.getInt("selectedList", 0);

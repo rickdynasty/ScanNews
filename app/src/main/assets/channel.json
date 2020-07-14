@@ -1,39 +1,27 @@
 [
   {
+    "en":"topnews",
+    "cn":"头条"
+  },
+  {
+    "en":"film",
+    "cn":"影视"
+  },
+  {
+    "en":"internet",
+    "cn":"互联网"
+  },
+  {
+    "en":"woman",
+    "cn":"女性"
+  },
+  {
+    "en":"caijing",
+    "cn":"财经"
+  },
+  {
     "en":"keji",
     "cn":"科技"
-  },
-  {
-    "en":"health",
-    "cn":"健康"
-  },
-  {
-    "en":"tiyu",
-    "cn":"体育"
-  },
-  {
-    "en":"huabian",
-    "cn":"娱乐"
-  },
-  {
-    "en":"nba",
-    "cn":"NBA"
-  },
-  {
-    "en":"football",
-    "cn":"足球"
-  },
-  {
-    "en":"startup",
-    "cn":"创业"
-  },
-  {
-    "en":"apple",
-    "cn":"苹果"
-  },
-  {
-    "en":"military",
-    "cn":"军事"
   },
   {
     "en":"guonei",
@@ -46,18 +34,6 @@
   {
     "en":"social",
     "cn":"社会"
-  },
-  {
-    "en":"mobile",
-    "cn":"移动"
-  },
-  {
-    "en":"travel",
-    "cn":"旅游"
-  },
-  {
-    "en":"qiwen",
-    "cn":"奇闻"
   },
   {
     "en":"it",
