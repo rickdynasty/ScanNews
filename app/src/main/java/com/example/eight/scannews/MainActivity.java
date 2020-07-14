@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onPrepareOptionsMenu(Menu menu) {
         if (menu != null) {
             if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
-                try{
+                try {
                     Method m = menu.getClass().getDeclaredMethod("setOptionalIconsVisible", Boolean.TYPE);
                     m.setAccessible(true);
                     m.invoke(menu, true);
@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity
                         new AboutFragment()).commit();
                 break;
             case R.id.nav_share:
-                Snackbar.make(navigationView,"敬请期待",Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(navigationView, "敬请期待", Snackbar.LENGTH_SHORT).show();
                 break;
             case R.id.nav_setting:
                 //Snackbar.make(navigationView,"敬请期待",Snackbar.LENGTH_SHORT).show();

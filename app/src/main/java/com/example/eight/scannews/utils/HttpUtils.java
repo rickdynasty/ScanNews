@@ -74,6 +74,7 @@ public class HttpUtils {
 
     /**
      * 获取单例
+     *
      * @param baseUrl 链接
      * @return 返回实例
      */
@@ -84,9 +85,9 @@ public class HttpUtils {
 
     /**
      * @param channel  频道
-     * @param key  密钥
-     * @param num  每页数量
-     * @param page 页数
+     * @param key      密钥
+     * @param num      每页数量
+     * @param page     页数
      * @param observer 观察值对象
      */
 
@@ -100,9 +101,9 @@ public class HttpUtils {
     }
 
     /**
-     * @param context  上下文
-     * @param imageView  图片控件
-     * @param url  图片链接
+     * @param context   上下文
+     * @param imageView 图片控件
+     * @param url       图片链接
      */
     public static void showPicture(Context context, ImageView imageView, String url) {
         if (imageView == null) {
@@ -110,7 +111,7 @@ public class HttpUtils {
         }
 
         SharedPreferences sp = context.getSharedPreferences("SETTING", Context.MODE_PRIVATE);
-        boolean isWifiLoading =  sp.getBoolean("WIFI_LOADING", false);
+        boolean isWifiLoading = sp.getBoolean("WIFI_LOADING", false);
         if (isWifiLoading && !isWifiConnected()) {
             url = "";
         }

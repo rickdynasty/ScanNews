@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.example.eight.scannews.R;
 import com.example.eight.scannews.beans.NewsBean;
-import com.example.eight.scannews.view.SettingsActivity;
 
 import java.util.List;
 

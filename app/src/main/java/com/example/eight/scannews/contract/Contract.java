@@ -24,14 +24,18 @@ public interface Contract {
     // View 层
     interface NewsView {
         void showProgress(); // 显示进度条
+
         void addNews(List<NewsBean.NewslistBean> newsBeanList); // 数据显示
+
         void hideProgress(); // 隐藏进度条
+
         void showLoadingFail(); // 加载失败
     }
 
     // 监听事件
     interface OnLoadNewsListListener {
         void onSuccess(List<NewsBean.NewslistBean> list); // 返回数据成功
+
         void onFailure(String msg, Exception e); // 返回数据失败
     }
 }

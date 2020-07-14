@@ -2,10 +2,10 @@ package com.example.eight.scannews.presenter;
 
 import android.content.Context;
 
-import com.example.eight.scannews.utils.ChannelsUtils;
 import com.example.eight.scannews.beans.NewsBean;
 import com.example.eight.scannews.contract.Contract;
 import com.example.eight.scannews.model.NewsModelImpl;
+import com.example.eight.scannews.utils.ChannelsUtils;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import java.util.List;
  * Created by eight on 2017/6/6.
  */
 
-public class NewsPresenterImpl implements Contract.NewsPresenter, Contract.OnLoadNewsListListener{
+public class NewsPresenterImpl implements Contract.NewsPresenter, Contract.OnLoadNewsListListener {
 
     private Contract.NewsModel newsModel;
     private Contract.NewsView newsView;

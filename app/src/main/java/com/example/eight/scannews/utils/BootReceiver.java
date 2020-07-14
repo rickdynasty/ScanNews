@@ -6,7 +6,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.NotificationCompat;
+import android.support.v4.app.NotificationCompat;
 
 import com.example.eight.scannews.R;
 import com.example.eight.scannews.beans.NewsBean;
@@ -14,7 +14,6 @@ import com.example.eight.scannews.contract.Contract;
 import com.example.eight.scannews.presenter.NewsPresenterImpl;
 import com.example.eight.scannews.view.NewsDetailActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
@@ -29,7 +28,7 @@ public class BootReceiver extends BroadcastReceiver implements Contract.NewsView
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)){
+        if (intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {
             newsPresenter = new NewsPresenterImpl(context, null);
             newsPresenter.loadNews(0, "27fe422dbc0fafc86d0be396ea5761e0", 1, 0);
             // 执行的操作

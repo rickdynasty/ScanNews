@@ -25,7 +25,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class NewsDetailActivity extends AppCompatActivity{
+public class NewsDetailActivity extends AppCompatActivity {
 
     private NewsBean newsBean;
     private ArrayList<String> news;
@@ -60,15 +60,15 @@ public class NewsDetailActivity extends AppCompatActivity{
         });
 
         Bundle bundle = this.getIntent().getExtras();
-        news= bundle.getStringArrayList("news");
+        news = bundle.getStringArrayList("news");
         assert news != null;
         newsTitle = news.get(0);
         newsUrl = news.get(1);
         pictureUrl = news.get(2);
 
         Log.e("NewsDetailActivity--->", "onCreate: " + newsTitle + "/"
-                                + newsUrl + "/"
-                                + pictureUrl);
+                + newsUrl + "/"
+                + pictureUrl);
 
         WebSettings webSettings = newsWebContent.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -80,7 +80,7 @@ public class NewsDetailActivity extends AppCompatActivity{
         progress.setVisibility(View.VISIBLE);
 
         newsWebContent.loadUrl(newsUrl);
-        newsWebContent.setWebViewClient(new WebViewClient(){
+        newsWebContent.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);

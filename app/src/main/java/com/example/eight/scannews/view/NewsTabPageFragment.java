@@ -53,7 +53,7 @@ public class NewsTabPageFragment extends Fragment {
         ViewPager viewPager = (ViewPager) view.findViewById(R.id.view_pager);
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tab_layout);
 
-        newsTab =  ChannelsUtils.setupTab("cn");
+        newsTab = ChannelsUtils.setupTab("cn");
         viewPager.setOffscreenPageLimit(1);
         initViewPager(viewPager);
         for (String aNewsTab : newsTab) {
@@ -111,7 +111,7 @@ public class NewsTabPageFragment extends Fragment {
         super.onDetach();
     }
 
-    private class MyPagerAdapter extends FragmentPagerAdapter{
+    private class MyPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> fragmentList = new ArrayList<>();
         private final List<String> titleList = new ArrayList<>();
 

@@ -52,12 +52,13 @@ public class ChannelsAdapter extends RecyclerView.Adapter<ChannelsAdapter.Channe
         return list.size();
     }
 
-    public void getData(List<String> list){
+    public void getData(List<String> list) {
         this.list = list;
     }
 
     public class ChannelHolder extends RecyclerView.ViewHolder {
         private TextView channelText;
+
         public ChannelHolder(View itemView) {
             super(itemView);
             channelText = (TextView) itemView.findViewById(R.id.channel_text);
